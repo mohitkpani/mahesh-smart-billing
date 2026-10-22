@@ -3,6 +3,8 @@ package com.shopbill.controller;
 
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +21,8 @@ import com.shopbill.service.PdfService;
 @RequestMapping("/api/billing")
 public class EmailController {
 
+    private static final Logger logger = LoggerFactory.getLogger(EmailController.class);
+
     private final EmailService emailService;
     private final PdfService pdfService;
 
@@ -34,19 +38,16 @@ public class EmailController {
             @RequestBody CreateBillRequest request) {
 
         try {
-            // Validate bill items
             if (request.items() == null || request.items().isEmpty()) {
                 throw new ResponseStatusException(
                         HttpStatus.BAD_REQUEST,
                         "At least one bill item is required");
             }
 
-            // Generate PDF with customer details
             byte[] pdf = pdfService.generateBillPdf(request);
 
             String email = request.customerEmail();
 
-            // If email is blank, generate the bill without sending email
             if (email == null || email.isBlank()) {
                 return ResponseEntity.ok(
                         Map.of(
@@ -54,7 +55,6 @@ public class EmailController {
                                 "Bill generated successfully. No email provided."));
             }
 
-            // Validate email only when provided
             if (!email.matches(
                     "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
                 throw new ResponseStatusException(
@@ -62,7 +62,6 @@ public class EmailController {
                         "Enter a valid customer email address");
             }
 
-            // Email the PDF receipt
             emailService.sendBillEmail(request, pdf);
 
             return ResponseEntity.ok(
@@ -73,9 +72,12 @@ public class EmailController {
         } catch (ResponseStatusException ex) {
             throw ex;
         } catch (Exception ex) {
+            logger.error("Failed to generate bill or send invoice email", ex);
+
             throw new ResponseStatusException(
                     HttpStatus.INTERNAL_SERVER_ERROR,
-                    "Could not process the bill or send the email");
+                    "Could not process the bill or send the email",
+                    ex);
         }
     }
 }
