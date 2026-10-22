@@ -1,0 +1,21 @@
+# React
+shopbill-frontend/node_modules/
+shopbill-frontend/dist/
+shopbill-frontend/.env
+shopbill-frontend/.env.*
+
+# Spring Boot
+shopbill/target/
+shopbill/.env
+shopbill/.env.*
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+**/application-local.properties
+
+# IDE files
+.vscode/
+.idea/
+*.iml
