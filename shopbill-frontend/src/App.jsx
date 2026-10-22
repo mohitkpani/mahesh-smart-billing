@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import logo from "./assets/logo.png";
 
 const API_BASE_URL = "https://mahesh-smart-billing-api.onrender.com/api/billing";
 
@@ -229,7 +230,7 @@ export default function App() {
       <header className="header">
         <div className="brand">
           <img
-            src=".\src\assets\logo.png"
+            src={logo}
             alt="Mahesh Digital Studio logo"
             className="brand-logo"
           />
