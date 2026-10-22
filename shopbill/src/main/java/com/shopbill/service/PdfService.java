@@ -36,14 +36,12 @@ public class PdfService {
 
     private static final String SHOP_NAME = "Mahesh Digital Studio";
     private static final String SHOP_PHONE = "83277 68671";
-    private static final String SHOP_ADDRESS =
-            "Totapada, Rasgovindpur, Mayurbhanj, Odisha, 757056";
+    private static final String SHOP_ADDRESS = "Totapada, Rasgovindpur, Mayurbhanj, Odisha, 757056";
 
     public byte[] generateBillPdf(CreateBillRequest request) throws Exception {
         List<BillRequest> items = request.items() == null ? List.of() : request.items();
         ByteArrayOutputStream output = new ByteArrayOutputStream();
 
-        
         Document document = new Document(PageSize.A4, 28, 28, 24, 78);
         PdfWriter writer = PdfWriter.getInstance(document, output);
         writer.setPageEvent(new InvoiceFooterPageEvent());
@@ -56,7 +54,6 @@ public class PdfService {
         Font headerFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 8, Color.WHITE);
         Font totalFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12, DARK_PURPLE);
 
-       
         PdfPTable shopHeader = new PdfPTable(1);
         shopHeader.setWidthPercentage(100);
         shopHeader.setSpacingAfter(6);
@@ -79,8 +76,7 @@ public class PdfService {
         logoCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
 
         try {
-            ClassPathResource logoResource =
-                    new ClassPathResource("static/images/mds-logo.png");
+            ClassPathResource logoResource = new ClassPathResource("static/images/mds-logo.jpg");
             if (logoResource.exists()) {
                 try (InputStream input = logoResource.getInputStream()) {
                     Image logo = Image.getInstance(input.readAllBytes());
@@ -88,7 +84,7 @@ public class PdfService {
                     logoCell.addElement(logo);
                 }
             } else {
-                System.err.println("PDF logo not found: static/images/mds-logo.png");
+                System.err.println("PDF logo not found: static/images/mds-logo.jpg");
             }
         } catch (Exception logoException) {
             System.err.println("Could not load PDF logo: " + logoException.getMessage());
