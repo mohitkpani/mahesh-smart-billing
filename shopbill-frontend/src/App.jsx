@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
-const API_BASE_URL = "http://192.168.31.222:8080/api/billing";
+const API_BASE_URL = "https://mahesh-smart-billing-api.onrender.com/api/billing";
 
 const createEmptyItem = () => ({
   id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
