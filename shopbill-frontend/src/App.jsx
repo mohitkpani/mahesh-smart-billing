@@ -3,7 +3,6 @@ import "./App.css";
 import logo from "./assets/logo.png";
 
 const API_BASE_URL = "https://mahesh-smart-billing-api.onrender.com/api/billing";
-
 const createEmptyItem = () => ({
   id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
   productName: "",
