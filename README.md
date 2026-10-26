@@ -1,5 +1,5 @@
  <div align="center">
-  <img src="assets/mds-logo.jpg" alt="Mahesh Digital Studio Logo" width="150">
+  <img src="assets/image.png" alt="Mahesh Digital Studio Logo" width="150">
 
   <h1>🧾 Mahesh Smart Billing System</h1>
 
