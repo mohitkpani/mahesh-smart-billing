@@ -1,72 +1,71 @@
-# Mahesh Smart Billing System
+ <div align="center">
+  <img src="assets/mds-logo.jpg" alt="Mahesh Digital Studio Logo" width="150">
 
-A web-based billing application developed for **Mahesh Digital Studio** to create professional invoices, calculate product totals, generate PDF bills, and send invoices to customers through email.
+  <h1>🧾 Mahesh Smart Billing System</h1>
 
-## Live Demo
+  <p><b>Smart Invoicing for Mahesh Digital Studio</b></p>
 
-- **Frontend:** https://mahesh-smart-billing.netlify.app
-- **Backend API:** https://mahesh-smart-billing-api.onrender.com
+  <img src="https://img.shields.io/badge/Frontend-React-61DAFB?logo=react" alt="React">
+  <img src="https://img.shields.io/badge/Backend-Spring%20Boot-6DB33F?logo=springboot" alt="Spring Boot">
+  <img src="https://img.shields.io/badge/Java-21-orange?logo=openjdk" alt="Java 21">
+</div>
 
-## Features
+---
 
-- Create customer invoices with customer name, mobile number, email, and address.
-- Add multiple products or services.
-- Enter product prices and quantities.
-- Automatically calculate item amounts and the grand total.
-- Preview invoices before downloading.
-- Generate and download PDF invoices.
-- Send PDF invoices to customers by email.
-- Responsive React user interface.
-- Branded invoice design with the Mahesh Digital Studio logo.
+## 🚀 Live Demo
 
-## Technologies Used
+- 🌐 **Frontend:** [Mahesh Smart Billing](https://mahesh-smart-billing.netlify.app)
+- ⚙️ **Backend API:** [Render Backend](https://mahesh-smart-billing-api.onrender.com)
 
-### Frontend
+## ✨ Features
 
-- React.js
-- JavaScript
-- HTML5
-- CSS3
-- Vite
+- 🧾 Generate and download PDF invoices
+- 👤 Enter customer details and address
+- 🛒 Add or remove multiple products and services
+- 🧮 Automatically calculate item amounts and grand total
+- 👀 Preview invoices before downloading
+- 📧 Send invoices with PDF attachments by email
+- 📱 Responsive interface for desktop and mobile
+- 💜 Branded invoices for Mahesh Digital Studio
 
-### Backend
+## 🛠️ Tech Stack
 
-- Java 21
-- Spring Boot
-- Maven
-- OpenPDF for PDF generation
-- Sendliberty API for email delivery
+| Technology      | Purpose             |
+| --------------- | ------------------- |
+| React + Vite    | Frontend            |
+| Java 21         | Backend language    |
+| Spring Boot     | REST API            |
+| OpenPDF         | PDF generation      |
+| Sendliberty API | Email delivery      |
+| Netlify         | Frontend deployment |
+| Render          | Backend deployment  |
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 mahesh-smart-billing/
+├── assets/
+│   └── mds-logo.jpg
 ├── shopbill-frontend/
 │   ├── src/
-│   │   ├── App.jsx
-│   │   ├── App.css
-│   │   └── assets/
 │   ├── public/
 │   └── package.json
-│
 ├── shopbill/
 │   ├── src/
 │   │   └── main/
 │   │       ├── java/com/shopbill/
 │   │       └── resources/
-│   │           └── static/images/
 │   └── pom.xml
-│
 └── README.md
 ```
 
-## Run Locally
+## 💻 Run Locally
 
 ### Prerequisites
 
-- Java 21 or compatible JDK
-- Node.js and npm
+- Java 21
 - Maven
+- Node.js and npm
 
 ### 1. Clone the repository
 
@@ -75,20 +74,18 @@ git clone https://github.com/mohitkpani/mahesh-smart-billing.git
 cd mahesh-smart-billing
 ```
 
-### 2. Start the backend
+### 2. Run the backend
 
-Configure the Sendliberty API key as an environment variable named `SENDLIBERTY_API_KEY`.
-
-From the project root, run:
+Configure the `SENDLIBERTY_API_KEY` environment variable before starting the application.
 
 ```bash
 cd shopbill
 mvn spring-boot:run
 ```
 
-The backend runs at `http://localhost:8080` by default.
+Backend URL: `http://localhost:8080`
 
-### 3. Start the frontend
+### 3. Run the frontend
 
 Open a second terminal from the project root:
 
@@ -98,25 +95,24 @@ npm install
 npm run dev
 ```
 
-Open the local URL shown in your terminal, usually `http://localhost:5173`.
+Open the local URL displayed in the terminal, usually `http://localhost:5173`.
 
-For local development, configure the frontend API base URL to use `http://localhost:8080/api/billing`. For production, use the deployed Render API URL.
+For local development, set the frontend API base URL to `http://localhost:8080/api/billing`. For production, use the deployed Render API URL.
 
-## Deployment
+## 🔐 Security
 
-- **Frontend:** Deployed on Netlify.
-- **Backend:** Deployed on Render.
-- **Email delivery:** Integrated with Sendliberty.
+- Store API keys and credentials in environment variables.
+- Never commit passwords, API keys, or other secrets to GitHub.
 
-Configure secrets such as `SENDLIBERTY_API_KEY` through environment variables in your local run configuration and hosting service. Never commit API keys, passwords, or other credentials to GitHub.
+## 🚀 Future Improvements
 
-## Future Improvements
+- Invoice history and reporting
+- Customer and product management
+- Persistent invoice storage
+- Invoice search and filtering
 
-- Invoice history and reporting.
-- Customer and product management.
-- Persistent storage for invoices.
-- Improved invoice search and filtering.
+---
 
-## Author
-
-Developed for **Mahesh Digital Studio**.
+<div align="center">
+  <p>Made with ❤️ for <b>Mahesh Digital Studio</b></p>
+</div>
